@@ -1,33 +1,128 @@
 <html lang="ru">
 	<head>
-		<title>Лаб</title>
+		<title>Семестровая работа</title>
 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./bootstrap.min.css" />
+		<!-- <script src="./bootstrap.min.js"></script> -->
 		<script src="//cdn.rawgit.com/fdaciuk/ajax/v3.0.4/dist/ajax.min.js"></script>
-
-		<style>
-			.item {
-				border: 2px solid black;
-				margin: 2px;
-				padding: 4px;
-			}
-		</style>
 	</head>
 
+	<style>
+		svg {
+			margin-right: 5px;
+		}
+	</style>
+
 	<body>
-		{% for item in data %}
-		<div class="list">
-			<div class="item">
-				<p class="id">{{ item[0] }}</p>
-				<p class="title">{{ item[1] }}</p>
-				<p class="text">{{ item[2] }}</p>
-				<p class="link">{{ item[3] }}</p>
-				<p class="time">{{ item[4] }}</p>
-				<p class="view">{{ item[5] }}</p>
-				<p class="comments">{{ item[6] }}</p>
+		<div class="list container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+				<div class="container">
+					<a class="navbar-brand text-white">Семестровая работа</a>
+				</div>
+			</nav>
+			{% for item in data %}
+			<div class="container">
+				<div class="card" style="margin-top: 15px">
+					<div class="item container">
+						<div class="item">
+							<h5 class="id" style="margin-top: 10px">{{ item[0] }}</h5>
+							<h5 class="title card-title">{{ item[1] }}</h5>
+							<p class="text card-text">{{ item[2] }}</p>
+							<p
+								class="link"
+								style="display: flex; flex-direction: row; align-items: center"
+							>
+								<svg
+									width="1em"
+									height="1em"
+									viewBox="0 0 16 16"
+									class="bi bi-link"
+									fill="currentColor"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"
+									/>
+									<path
+										d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"
+									/>
+								</svg>
+								{{ item[3] }}
+							</p>
+							<div class="row">
+								<p
+									class="time col-4"
+									style="display: flex; flex-direction: row; align-items: center"
+								>
+									<svg
+										width="1em"
+										height="1em"
+										viewBox="0 0 16 16"
+										class="bi bi-calendar"
+										fill="currentColor"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+										/>
+									</svg>
+									{{ item[4] }}
+								</p>
+								<p
+									class="view col-4"
+									style="display: flex; flex-direction: row; align-items: center"
+								>
+									<svg
+										width="1em"
+										height="1em"
+										viewBox="0 0 16 16"
+										class="bi bi-eye"
+										fill="currentColor"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+										/>
+										<path
+											fill-rule="evenodd"
+											d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+										/>
+									</svg>
+									{{ item[5] }}
+								</p>
+								<p
+									class="comments col-4"
+									style="display: flex; flex-direction: row; align-items: center"
+								>
+									<svg
+										width="1em"
+										height="1em"
+										viewBox="0 0 16 16"
+										class="bi bi-chat-left-text"
+										fill="currentColor"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M14 1H2a1 1 0 0 0-1 1v11.586l2-2A2 2 0 0 1 4.414 11H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+										/>
+										<path
+											fill-rule="evenodd"
+											d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"
+										/>
+									</svg>
+									{{ item[6] }}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			{% endfor %}
 		</div>
-		{% endfor %}
 	</body>
 </html>

@@ -16,10 +16,10 @@ app = Flask(__name__)
 create_table_connect = sqlite3.connect("resource/news.db")
 create_table_cursor = create_table_connect.cursor()
 create_table_cursor.execute("""
-CREATE TABLE IF NOT EXISTS news 
+CREATE TABLE IF NOT EXISTS news
     (
-        id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        title TEXT NOT NULL, 
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
         text TEXT NOT NULL,
         link_topic TEXT NOT NULL,
         date_publication DATETIME NOT NULL,
@@ -68,7 +68,7 @@ def job_news_job():
                     log('insert new row|{} - {}'.format(item[1][:75] + '...', item[0]))
                 else:
                     cur.execute("""
-                    UPDATE news SET count_view = ?, count_comments = ? 
+                    UPDATE news SET count_view = ?, count_comments = ?
                     WHERE  title = ? AND link_topic = ?""", (item[2], item[3], item[1], item[0]))
                     conn.commit()
                     log('update row|{} - {}'.format(item[1][:75] + '...', item[0]))
