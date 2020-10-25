@@ -1,36 +1,33 @@
 <html lang="ru">
+	<head>
+		<title>Лаб</title>
 
-<head>
-    <title>Лаб</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="//cdn.rawgit.com/fdaciuk/ajax/v3.0.4/dist/ajax.min.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="//cdn.rawgit.com/fdaciuk/ajax/v3.0.4/dist/ajax.min.js"></script>
+		<style>
+			.item {
+				border: 2px solid black;
+				margin: 2px;
+				padding: 4px;
+			}
+		</style>
+	</head>
 
-    <style>
-        .item {
-            border: 2px solid black;
-            margin: 2px;
-            padding: 4px;
-        }
-    </style>
-
-</head>
-
-<body>
-{% for item in data %}
-<div class="list">
-    <div class="item">
-        <p class="id">{{ item[0] }}</p>
-        <p class="title">{{ item[1] }}</p>
-        <p class="text">{{ item[2] }}</p>
-        <p class="link">{{ item[3] }}</p>
-        <p class="time">{{ item[4] }}</p>
-        <p class="view">{{ item[5] }}</p>
-        <p class="comments">{{ item[6] }}</p>
-    </div>
-</div>
-{% endfor %}
-</body>
-
+	<body>
+		{% for item in data %}
+		<div class="list">
+			<div class="item">
+				<p class="id">{{ item[0] }}</p>
+				<p class="title">{{ item[1] }}</p>
+				<p class="text">{{ item[2] }}</p>
+				<p class="link">{{ item[3] }}</p>
+				<p class="time">{{ item[4] }}</p>
+				<p class="view">{{ item[5] }}</p>
+				<p class="comments">{{ item[6] }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</body>
 </html>
